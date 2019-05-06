@@ -1,8 +1,24 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
+    <link rel=”stylesheet” type=”text/css” href=”css/<?php echo($css)?>” />
     <title>La météo</title>
 <body>
+    <?php
+        $date = getdate();
+
+        switch($hours = $date["hours"])
+        {
+            case($hours < 7):
+            $css = "nuit.css";
+            
+            case($hours > 7):
+            $css = "jour.css";
+
+            case($hours > 19):
+            $css = "nuit.css";
+        }
+    ?>
     <h1>La meteo !</h1>
 
     <p>nous somme le : <?php echo date('j/m/y') ?></p>
