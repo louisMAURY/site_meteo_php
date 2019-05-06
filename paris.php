@@ -2,9 +2,25 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <link rel=”stylesheet” type=”text/css” href=”css/<?php echo($css)?>” />
     <title>Paris, météo</title>
 </head>
 <body>
+    <?php
+        $date = getdate();
+
+        switch($hours = $date["hours"])
+        {
+            case($hours < 7):
+            $css = "nuit.css";
+            
+            case($hours > 7):
+            $css = "jour.css";
+
+            case($hours > 19):
+            $css = "nuit.css";
+        }
+    ?>
     <h1>Meteo de Paris</h1>
     <h2>Aujourd'hui</h2>
     <?php
